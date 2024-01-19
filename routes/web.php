@@ -23,9 +23,9 @@ Route::middleware(['middleware' => 'session'])->group(function () {
     Route::get('/user-dashboard', [UserController::class, 'UserDashboard'])->name('user_dashboard');
     Route::get('/users/edit/{id}', [UserController::class, 'edit'])->name('userEdit');
     Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
-    Route::get('/registration-report', 'ReportController@registrationReport')->name('registration');
-    Route::get('/technology-report', 'ReportController@technologyReport')->name('technology');
-    Route::get('/map-report', 'ReportController@mapReport')->name('map');
+    Route::get('/registration-report', 'ReportController@registrationReport')->name('registration')->middleware('user_type');
+    Route::get('/technology-report', 'ReportController@technologyReport')->name('technology')->middleware('user_type');
+    Route::get('/map-report', 'ReportController@mapReport')->name('map')->middleware('user_type');
     // crud operation 
     Route::get('technologies', [TechnologyController::class, 'index'])->name('technologies.index');
     Route::get('technologies/create', [TechnologyController::class, 'create'])->name('technologies.create');

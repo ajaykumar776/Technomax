@@ -31,7 +31,7 @@
     <?php $displayName = session('first_name') . " " . session('last_name') ?>
     <?php $user_id = session('user_id') ?? 0 ?>
     <?php $userType = session('user_type') ?>
-    <nav class="navbar navbar-expand-lg navbar-light bg-warning">
+    <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container-fluid">
             <a class="navbar-brand" href="{{ route('dashboard') }}">Dashboard | {{$userType =='user' ? $displayName : $userType }}</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">

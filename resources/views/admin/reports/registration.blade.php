@@ -1,6 +1,10 @@
 @extends('layouts.main')
-
 @section('content')
+<?php
+
+use Carbon\Carbon;
+
+?>
 <div class="row" style="margin-top: 10px;">
     <div class="col-12">
         <div class="card">
@@ -31,7 +35,7 @@
                         <tbody>
                             @foreach ($registrationReport as $data)
                             <tr>
-                                <td>{{ $data['created_at'] }}</td>
+                                <td>{{ Carbon::parse($data['created_at'])->format('F j, Y') }}</td>
                                 <td>{{ $data['name'] }}</td>
                                 <td>{{ $data['users_count'] }}</td>
                             </tr>
